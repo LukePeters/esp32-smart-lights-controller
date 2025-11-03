@@ -1,0 +1,3 @@
+WIFI_SSID = ""
+WIFI_PASSWORD = ""
+LIFX_AUTH_TOKEN = ""
