@@ -32,14 +32,14 @@ Whenever a button is pressed, the LED lights up to 100% brightness until a succe
 
 The ESP32-powered device is mounted on the edge of my desk in a custom 3D-printed enclosure with an angled face for ergonomic button access.
 
-![ESP32-powered buttons device](device-photo.jpg)
+![ESP32-powered buttons device](assets/device-photo.jpg)
 
 ## The 3D-Printed Enclosure
 
-If you want to create something like this, you can download the STL file for the enclosure here: [device-enclosure.stl](device-enclosure.stl)
+If you want to create something like this, you can download the STL file for the enclosure here: [device-enclosure.stl](assets/device-enclosure.stl)
 
 The interior is a blank slate so you can fit any type of microcontroller you want in there. There are two slots in the bottom which allow you to secure a board using a zip tie.
 
 The angled enclosure face has one circular hole for a standard 5mm LED and three square openings (14x14mm) for mechanical keyboard switches.
 
-![3D-printed device enclosure](device-enclosure.png)
+![3D-printed device enclosure](assets/device-enclosure.png)
