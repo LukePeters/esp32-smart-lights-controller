@@ -1,4 +1,4 @@
-# LIFX ESP32 Macropad
+# ESP32 Smart Lights Controller (MicroPython)
 
 A custom desk-mounted device with buttons that control the LIFX smart lights in my home office. Powered by an ESP32 development board.
 
@@ -27,3 +27,9 @@ When the board is powered on it will try to connect to my Wi-Fi network. While i
 When idle, the LED remains on at 5% brightness. This helps me navigate to the device in my office at night. It's the little things, y'know? That's the beauty of solving your own problems with custom-built solutions.
 
 Whenever a button is pressed, the LED lights up to 100% brightness until a successful response is received. This gives you confidence that pressing the button did something and that it's working on the request.
+
+## The completed device
+
+The ESP32-powered device is mounted on the edge of my desk in a custom 3D-printed enclosure with an angled face for ergonomic button access.
+
+![ESP32-powered buttons device](device-photo.jpg)
