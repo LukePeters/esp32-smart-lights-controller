@@ -52,5 +52,5 @@ while station.isconnected():
     key2_prev_state = key2_state
     key3_prev_state = key3_state
 
-    # Sleep to redeuce CPU usage
+    # Sleep to reduce CPU usage and debounce buttons
     sleep(0.1)
