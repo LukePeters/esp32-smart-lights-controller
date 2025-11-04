@@ -8,7 +8,7 @@ I'm using [mpremote](https://github.com/micropython/micropython/tree/master/tool
 1. Execute the helper script to upload all code: `./upload.sh`
 1. After upload, the script connects to the board so I can see serial output in the console
 
-## Button functionality
+## Button Functionality
 
 The buttons are low-profile mechanical keyboard switches from Gateron.
 
@@ -20,7 +20,7 @@ The buttons are low-profile mechanical keyboard switches from Gateron.
   - Press a set number times quickly to set a particular scene.
   - One press will activate Scene 1, two quick presses will activate Scene 2, etc.
 
-## LED functionality
+## LED Functionality
 
 When the board is powered on it will try to connect to my Wi-Fi network. While it's connecting it will blink slowly. Once connected it will flash quickly three times to indicate success.
 
@@ -28,8 +28,18 @@ When idle, the LED remains on at 5% brightness. This helps me navigate to the de
 
 Whenever a button is pressed, the LED lights up to 100% brightness until a successful response is received. This gives you confidence that pressing the button did something and that it's working on the request.
 
-## The completed device
+## The Completed Device
 
 The ESP32-powered device is mounted on the edge of my desk in a custom 3D-printed enclosure with an angled face for ergonomic button access.
 
 ![ESP32-powered buttons device](device-photo.jpg)
+
+## The 3D-Printed Enclosure
+
+If you want to create something like this, you can download the STL file for the enclosure here: [device-enclosure.stl](device-enclosure.stl)
+
+The interior is a blank slate so you can fit any type of microcontroller you want in there. There are two slots in the bottom which allow you to secure a board using a zip tie.
+
+The angled enclosure face has one circular hole for a standard 5mm LED and three square openings (14x14mm) for mechanical keyboard switches.
+
+![3D-printed device enclosure](device-enclosure.png)
