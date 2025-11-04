@@ -1,18 +1,19 @@
 from machine import Pin, PWM
 from secrets import LIFX_AUTH_TOKEN
 
-# Components
+# LED Configuration
 LED = PWM(Pin(4))
 LED.freq(1000)
 LED_STANDBY_DUTY = 5
 
+# Key Configurations
 KEY1 = Pin(14, Pin.IN, Pin.PULL_UP)
 KEY2 = Pin(12, Pin.IN, Pin.PULL_UP)
 KEY3 = Pin(27, Pin.IN, Pin.PULL_UP)
 MULTIPRESS_WINDOW = 500  # Milliseconds
 
+# LIFX API Configurations
 LIFX_HEADERS = {"Authorization": f"Bearer {LIFX_AUTH_TOKEN}"}
-
 LIFX_SCENES = [
     {
         "name": "Daytime Work",
