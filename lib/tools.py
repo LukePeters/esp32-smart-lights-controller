@@ -1,41 +1,8 @@
 from time import sleep
-from boot import LED, LED_STANDBY_DUTY
-from secrets import WIFI_SSID, WIFI_PASSWORD, LIFX_AUTH_TOKEN
+from boot import LED, LED_STANDBY_DUTY, LIFX_SCENES, LIFX_HEADERS
+from secrets import WIFI_SSID, WIFI_PASSWORD
 import network
 import urequests
-
-LIFX_HEADERS = {"Authorization": f"Bearer {LIFX_AUTH_TOKEN}"}
-
-LIFX_SCENES = [
-    {
-        "name": "Daytime Work",
-        "id": "69486701-6477-4d22-97ea-00adebe1a8c8",
-    },
-    {
-        "name": "Chill Neon",
-        "id": "f8d2de78-25e1-490f-8095-e2629aeefbc8",
-    },
-    {
-        "name": "Deep Vibes",
-        "id": "e9898260-b9ab-4337-b0a0-65a12d7fba6f",
-    },
-    {
-        "name": "Into the Blue",
-        "id": "66dafa6b-2483-46e2-9218-122668ef73ee",
-    },
-    {
-        "name": "Library",
-        "id": "f27b4b60-437e-4c84-af51-1408762f2145",
-    },
-    {
-        "name": "Cozy Nighttime",
-        "id": "ee7857af-2ecf-4141-851c-5eaf5990d79c",
-    },
-    {
-        "name": "Summer Light",
-        "id": "c5198da7-b4e8-43e4-9ee4-6f325c2453f8",
-    },
-]
 
 
 def connect_to_wifi():
@@ -63,17 +30,8 @@ def blink_led(led, times, speed):
         sleep(speed)
 
 
-def fade_led_in_out(led, speed):
-    for duty in range(0, 1024, 8):
-        led.duty(duty)
-        sleep(speed)
-    for duty in range(1023, -1, -8):
-        led.duty(duty)
-        sleep(speed)
-
-
 def toggle_lifx_power():
-    print("🎚️ Toggling lights power...")
+    print("⏳ Toggling lights power...")
     LED.duty(1023)
 
     # Make the POST request
@@ -90,12 +48,16 @@ def toggle_lifx_power():
     LED.duty(LED_STANDBY_DUTY)
 
 
-def set_lifx_scene(scene_index):
+def set_lifx_scene(scene_number):
+    if scene_number < 1 or scene_number > len(LIFX_SCENES):
+        print("❌ Scene index out of range!")
+        return
+
     LED.duty(1023)
 
-    scene_name = LIFX_SCENES[scene_index]["name"]
-    scene_id = LIFX_SCENES[scene_index]["id"]
-    print(f"🎚️ Toggling scene: {scene_name}...")
+    scene_name = LIFX_SCENES[scene_number - 1]["name"]
+    scene_id = LIFX_SCENES[scene_number - 1]["id"]
+    print(f"⏳ Toggling scene {scene_number}: {scene_name}...")
 
     # Make the PUT request
     resp = urequests.request(
