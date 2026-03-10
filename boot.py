@@ -1,4 +1,4 @@
-from machine import Pin, PWM
+from machine import Pin, PWM  # type: ignore
 from secrets import LIFX_AUTH_TOKEN
 
 # LED Configuration

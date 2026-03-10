@@ -1,5 +1,5 @@
 from boot import KEY1, KEY2, KEY3, MULTIPRESS_WINDOW
-import tools
+import tools  # type: ignore
 from time import sleep, ticks_ms, ticks_diff
 
 # Global variables and state
@@ -11,7 +11,12 @@ key3_last_press_time = 0
 
 station = tools.connect_to_wifi()
 
-while station.isconnected():
+while True:
+
+    # Reconnect to Wi-Fi if not connected
+    if not station.isconnected():
+        station = tools.connect_to_wifi()
+        continue
 
     # Read current key states
     key1_state = KEY1.value()
